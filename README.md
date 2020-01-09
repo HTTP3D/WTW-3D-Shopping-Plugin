@@ -2,7 +2,7 @@
 Open-Source 3D Internet (3D CMS) Invented and created by Aaron Dishno Ed.D. CEO and Founder of HTTP3D Inc. - WalkTheWeb Find me at http://WalkTheWeb.tv (WalkTheWeb on Twitch)
 
 # WTW-3D-Shopping-Plugin
-WalkTheWeb 3D Shopping Plugin
+WalkTheWeb 3D Shopping Plugin (Work in Progress - WIP)
 
 This plugin is designed to enhance the functionality for WalkTheWeb to be able to host 3D Stores that use WordPress WooCommerce through the WordPress WalkTheWeb plugin.
 
