@@ -151,6 +151,92 @@ class wtwshopping_stores {
 		}
 		return $zsuccess;
 	}
+
+	public function updateStoreKey($zstoreid) {
+		global $wtwplugins;
+		$zsuccess = false;
+		try {
+			if ($wtwplugins->isUserInRole("Admin") || $wtwplugins->isUserInRole("Developer") || $wtwplugins->isUserInRole("Architect")) {
+				if (!empty($zstoreid) && isset($zstoreid)) {
+					$wtwplugins->query("
+						update ".WTWSHOPPING_PREFIX."stores
+						set woocommercekey=woocommercekeynew,
+							woocommercesecret=woocommercesecretnew,
+							deleteddate=null,
+							deleteduserid='',
+							deleted=0
+						where storeid='".$zstoreid."'
+						limit 1;
+					");
+					$wtwplugins->query("
+						update ".WTWSHOPPING_PREFIX."stores
+						set woocommercekeynew='',
+							woocommercesecretnew='',
+							updatedate=now(),
+							updateuserid='".$wtwplugins->userid."'
+						where storeid='".$zstoreid."'
+						limit 1;
+					");
+					$zsuccess = true;
+				}
+			}
+		} catch (Exception $e) {
+			$wtwplugins->serror("plugins:wtw-shopping:functions-wtwshopping_stores.php-updateStoreKey=".$e->getMessage());
+		}
+		return $zsuccess;
+	}
+	
+	public function allowConnection($zstoreid) {
+		global $wtwplugins;
+		$zsuccess = false;
+		try {
+			if ($wtwplugins->isUserInRole("Admin") || $wtwplugins->isUserInRole("Developer") || $wtwplugins->isUserInRole("Architect")) {
+				if (!empty($zstoreid) && isset($zstoreid)) {
+					$zwtwkey = base64_encode("ck_".$wtwplugins->getRandomString(40,1));
+					$zwtwsecret = base64_encode("cs_".$wtwplugins->getRandomString(40,1));
+					$wtwplugins->query("
+						update ".WTWSHOPPING_PREFIX."stores
+						set wtwkey='".$zwtwkey."',
+							wtwsecret='".$zwtwsecret."',
+							createuserid='".$wtwplugins->userid."',
+							updatedate=now(),
+							updateuserid='".$wtwplugins->userid."',
+							deleteddate=null,
+							deleteduserid='',
+							deleted=0
+						where storeid='".$zstoreid."'
+						limit 1;
+					");
+					$zstoreurl = "";
+					$zwookey = "";
+					$zwoosecret = "";
+					$zresults = $wtwplugins->query("
+						select connectid 
+						from ".WTWSHOPPING_PREFIX."stores
+						where storeid='".$zstoreid."'
+						limit 1;");
+					foreach ($zresults as $zrow) {
+						$zstoreurl = $zrow["storeurl"];
+						$zwookey = $zrow["woocommercekey"];
+						$zwoosecret = $zrow["woocommercesecret"];
+					}
+					if (!empty($zwookey) && isset($zwookey) && !empty($zwoosecret) && isset($zwoosecret)) {
+						$zupdateurl = $zstoreurl."/walktheweb/wtwconnection.php?walktheweb_wtwconnection=1&hosturl=".$wtwplugins->domainurl."&wtwkey=".$zwtwkey."&wtwsecret=".$zwtwsecret."&wookey=".$zwookey."&woosecret=".$zwoosecret;
+						if(ini_get('allow_url_fopen') ) {
+							$zdata1 = file_get_contents($zupdateurl);
+						} else if (extension_loaded('curl')) {
+							$getfile = curl_init($zupdateurl);
+							curl_close($getfile);
+						}
+					}
+					$zsuccess = true;
+				}
+			}
+		} catch (Exception $e) {
+			$wtwplugins->serror("plugins:wtw-shopping:functions-wtwshopping_stores.php-allowConnection=".$e->getMessage());
+		}
+		return $zsuccess;
+	}
 	
 	public function deleteStore($zstoreid) {
 		global $wtwplugins;

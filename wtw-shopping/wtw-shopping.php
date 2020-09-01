@@ -3,7 +3,7 @@
 #	title = WalkTheWeb 3D Shopping Expansion
 #	description = Enable WalkTheWeb to host 3D Shopping Websites
 #	author = Aaron Dishno Ed.D.
-# 	version = 1.0.0
+# 	version = 1.0.1
 
 global $wtwplugins;
 
@@ -14,6 +14,6 @@ if (!defined('WTWSHOPPING_FILE')) {
 }
 
 if (!class_exists('wtwshopping')) {
-	require_once($wtwplugins->contentpath."\\plugins\\wtw-shopping\\functions\\class_wtwshopping.php");
+	require_once($wtwplugins->contentpath."/plugins/wtw-shopping/functions/class_wtwshopping.php");
 }
 ?>

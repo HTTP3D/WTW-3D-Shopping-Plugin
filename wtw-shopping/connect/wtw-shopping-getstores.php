@@ -20,9 +20,13 @@ try {
 			'storeurl'=> $zrow["storeurl"],
 			'storecarturl'=> $zrow["storecarturl"],
 			'storeproducturl'=> $zrow["storeproducturl"],
+			'wtwkey'=> $zrow["wtwkey"],
+			'wtwsecret'=> $zrow["wtwsecret"],
 			'woocommerceapiurl'=> $zrow["woocommerceapiurl"],
 			'woocommercekey'=> $zrow["woocommercekey"],
-			'woocommercesecret'=> $zrow["woocommercesecret"]
+			'woocommercesecret'=> $zrow["woocommercesecret"],
+			'woocommercekeynew'=> $zrow["woocommercekeynew"],
+			'woocommercesecretnew'=> $zrow["woocommercesecretnew"]
 		);
 		$i += 1;
 	}
