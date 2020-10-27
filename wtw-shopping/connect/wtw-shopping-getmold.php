@@ -25,8 +25,10 @@ try {
 				'communityid'=> $zrow["communityid"], 
 				'buildingid'=> $zrow["buildingid"],
 				'thingid'=> $zrow["thingid"],
+				'moldid'=> $zrow["moldidid"],
 				'slug'=> $zrow["slug"],
 				'productid'=> $zrow["productid"],
+				'productname'=> $zrow["productname"],
 				'categoryid'=> $zrow["categoryid"],
 				'allowsearch'=> $zrow["allowsearch"]
 			);
