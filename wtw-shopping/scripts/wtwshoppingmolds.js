@@ -186,29 +186,29 @@ wtwshopping.prototype.setMoldFormFields = function(zshape) {
 wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 	try {
 		var zcoords = WTW.getNewCoordinates(50);
-		var zpositionX = zcoords.positionX;
-		var zpositionY = zcoords.positionY;
-		var zpositionZ = zcoords.positionZ;
-		var zrotationY = zcoords.rotationY;
+		var zpositionx = zcoords.positionX;
+		var zpositiony = zcoords.positionY;
+		var zpositionz = zcoords.positionZ;
+		var zrotationy = zcoords.rotationY;
 		var zshapevalue = zshape.toLowerCase();
 		var zimagepath = "/content/system/stock/stucco-512x512.jpg";
 		while (zshapevalue.indexOf(" ") > -1) {
 			zshapevalue = zshapevalue.replace(" ","");
 		}
 		if (thingid != '') {
-			zpositionX = 0;
-			zpositionZ = 0;
+			zpositionx = 0;
+			zpositionz = 0;
 		}
 		switch (zshapevalue) {
 			case "storeproduct":
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = zpositionY;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = zpositiony;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "5.00";
 				dGet('wtw_tmoldscalingy').value = "5.00";
 				dGet('wtw_tmoldscalingz').value = "5.00";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY;
+				dGet('wtw_tmoldrotationy').value = zrotationy;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -222,15 +222,15 @@ wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 			case "storebuynow":
 			case "storecheckout":
 			case "storereadmore":
-				zrotationY = WTW.cleanDegrees(Number(zrotationY) + 180);
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = Number(zpositionY) + 7;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				zrotationy = WTW.cleanDegrees(Number(zrotationy) + 180);
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = Number(zpositiony) + 7;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "4.84";
 				dGet('wtw_tmoldscalingy').value = "1.98";
 				dGet('wtw_tmoldscalingz').value = "0.60";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY;
+				dGet('wtw_tmoldrotationy').value = zrotationy;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -241,14 +241,14 @@ wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 				break;
 
 			case "storesign":
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = zpositionY;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = zpositiony;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "3.00";
 				dGet('wtw_tmoldscalingy').value = "10.00";
 				dGet('wtw_tmoldscalingz').value = "30.00";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY;
+				dGet('wtw_tmoldrotationy').value = zrotationy;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -258,14 +258,14 @@ wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 				dGet('wtw_tmoldsubdivisions').value = "12";
 				break;			
 			case "store3dsign":
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = zpositionY-4;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = zpositiony-4;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "1.00";
 				dGet('wtw_tmoldscalingy').value = "1.00";
 				dGet('wtw_tmoldscalingz').value = "1.00";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY + 90;
+				dGet('wtw_tmoldrotationy').value = zrotationy + 90;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -287,14 +287,14 @@ wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 				WTW.setPreviewImage('wtw_moldtexturepreview', 'wtw_tmoldtexturepath', 'wtw_tmoldtextureid');
 				break;
 			case "storeviewcart":
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = zpositionY;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = zpositiony;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "0.25";
 				dGet('wtw_tmoldscalingy').value = "1.00";
 				dGet('wtw_tmoldscalingz').value = "5.00";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY;
+				dGet('wtw_tmoldrotationy').value = zrotationy;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -304,14 +304,14 @@ wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 				dGet('wtw_tmoldsubdivisions').value = "12";
 				break;			
 			case "storecategories":
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = zpositionY;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = zpositiony;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "1.00";
 				dGet('wtw_tmoldscalingy').value = "14.00";
 				dGet('wtw_tmoldscalingz').value = "10.00";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY;
+				dGet('wtw_tmoldrotationy').value = zrotationy;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -321,14 +321,14 @@ wtwshopping.prototype.setNewMoldDefaults = function(zshape) {
 				dGet('wtw_tmoldsubdivisions').value = "12";
 				break;			
 			case "storesearch":
-				dGet('wtw_tmoldpositionx').value = zpositionX;
-				dGet('wtw_tmoldpositiony').value = zpositionY;
-				dGet('wtw_tmoldpositionz').value = zpositionZ;
+				dGet('wtw_tmoldpositionx').value = zpositionx;
+				dGet('wtw_tmoldpositiony').value = zpositiony;
+				dGet('wtw_tmoldpositionz').value = zpositionz;
 				dGet('wtw_tmoldscalingx').value = "1.00";
 				dGet('wtw_tmoldscalingy').value = "14.00";
 				dGet('wtw_tmoldscalingz').value = "10.00";
 				dGet('wtw_tmoldrotationx').value = "0.00";
-				dGet('wtw_tmoldrotationy').value = zrotationY;
+				dGet('wtw_tmoldrotationy').value = zrotationy;
 				dGet('wtw_tmoldrotationz').value = "0.00";
 				dGet('wtw_tmoldspecial2').value = "0.00";
 				dGet('wtw_tmolduoffset').value = "0.00";
@@ -352,11 +352,9 @@ wtwshopping.prototype.addMoldStoreButton = function(zmoldname, zmolddef, zlenx, 
 		zmold.material = new BABYLON.StandardMaterial("mat" + zmoldname, scene);
 		zmold.material.alpha = 0;
 		var zbasemold = BABYLON.MeshBuilder.CreateBox(zmoldname + "-base", {}, scene);
-//		zbasemold.scaling = new BABYLON.Vector3(1,1,1);
 		zbasemold.scaling = new BABYLON.Vector3(1/zlenx,1/zleny,1/zlenz);
 		zbasemold.material = new BABYLON.StandardMaterial("matbase" + zmoldname, scene);
 		zbasemold.material.alpha = 0;
-//		zbasemold.position.z = -zlenz*.3
 		zbasemold.parent = zmold;
 		var zshape = 'storereadmore';
 		var zfolder = '/content/plugins/wtw-shopping/assets/3dobjects/';
@@ -530,45 +528,19 @@ wtwshopping.prototype.addMoldStoreButton = function(zmoldname, zmolddef, zlenx, 
 							if (zobjectanimations != null) {
 								WTW.addMoldAnimation(zmoldname, zmeshname, results.meshes[i], zobjectanimations);
 							}
-/*							if (zmeshname == 'displayframe') {
-								var zcovering = new BABYLON.StandardMaterial("mat" + zmoldname, scene);
-								zcovering.diffuseColor = new BABYLON.Color3.FromHexString(zmolddef.color.diffusecolor);
-								zcovering.emissiveColor = new BABYLON.Color3.FromHexString(zmolddef.color.emissivecolor);
-								zcovering.specularColor = new BABYLON.Color3.FromHexString(zmolddef.color.specularcolor);
-								zcovering.ambientColor = new BABYLON.Color3.FromHexString(zmolddef.color.ambientcolor);
-							}
-*/						}
+						}
 					}
-					zmold.isPickable = false;
-					WTWShopping.getStoreMolds(zmoldname); 
+					/* check to see if the mold still exists since the time it was requested */
+					zmold = scene.getMeshByID(zmoldname);
+					if (zmold == null) {
+						WTW.disposeClean(zmoldname);
+					} else {
+						zmold.isPickable = false;
+						WTWShopping.getStoreMolds(zmoldname); 
+					}
 				}
 			}
 		);
-/*
-		var ztitlemold = BABYLON.MeshBuilder.CreateBox(zmoldname + "-titleimagesm", {}, scene);
-		ztitlemold.scaling = new BABYLON.Vector3(zlenx * .1, zlenz * .86,zleny * .1);
-		ztitlemold.position = new BABYLON.Vector3(zlenx * .36, -zleny * .16, 0);
-		ztitlemold.rotation.x = WTW.getRadians(90);
-		ztitlemold.parent = zbasemold;
-
-		var ztitlemold2 = BABYLON.MeshBuilder.CreateBox(zmoldname + "-titleimage2sm", {}, scene);
-		ztitlemold2.scaling = new BABYLON.Vector3(zlenx * .1, zlenz * .86,zleny * .1);
-		ztitlemold2.position = new BABYLON.Vector3(-zlenx * .36, -zleny * .16, 0);
-		ztitlemold2.rotation.x = WTW.getRadians(-90);
-		ztitlemold2.parent = zbasemold;
-		
-		var zpricemold = BABYLON.MeshBuilder.CreateBox(zmoldname + "-price1", {}, scene);
-		zpricemold.scaling = new BABYLON.Vector3(zlenx * .1, zlenz * .65,zleny * .08);
-		zpricemold.position = new BABYLON.Vector3(zlenx * .36, -zleny * .36, 0);
-		zpricemold.rotation.x = WTW.getRadians(90);
-		zpricemold.parent = zbasemold;
-
-		var zpricemold2 = BABYLON.MeshBuilder.CreateBox(zmoldname + "-price2", {}, scene);
-		zpricemold2.scaling = new BABYLON.Vector3(zlenx * .1, zlenz * .65,zleny * .08);
-		zpricemold2.position = new BABYLON.Vector3(-zlenx * .36, -zleny * .36, 0);
-		zpricemold2.rotation.x = WTW.getRadians(-90);
-		zpricemold2.parent = zbasemold;
-*/
 	} catch (ex) {
 		WTW.log("plugins:wtw-shopping:scripts-wtwshoppingmolds.js-addMoldStoreButton=" + ex.message);
 	}
@@ -907,7 +879,7 @@ wtwshopping.prototype.addMoldStoreProduct = function(zmoldname, zmolddef, zlenx,
 			zdescimage2.parent = zbasemold;
 			WTW.registerMouseOver(zdescimage2);
 
-		} else { /* all other displays are loaded 3D Objects */
+		} else { /* all other displays are loaded 3D Models */
 			var zfolder = '/content/plugins/wtw-shopping/assets/3dobjects/';
 			var zfile = '';
 			switch (zspecial1) {
@@ -1183,12 +1155,7 @@ wtwshopping.prototype.addMoldStoreProduct = function(zmoldname, zmolddef, zlenx,
 								WTW.registerMouseOver(zresults.meshes[i]);
 								if (zresults.meshes[i].parent == null) {
 									zresults.meshes[i].parent = zmold;
-									/* zresults.meshes[i].rotation.x = WTW.getRadians(0); */
-									/* zresults.meshes[i].rotation.y = WTW.getRadians(180); */
-/*									zresults.meshes[i].scaling.y = .5;
-									zresults.meshes[i].scaling.x = .5;
-									zresults.meshes[i].scaling.z = .5;
-*/								}
+								}
 								if (zresults.meshes[i].material != null) {
 									if (zmeshname == 'readmore1' || zmeshname == 'readmore2' || zmeshname == 'addtocart1' || zmeshname == 'addtocart2') {
 										zresults.meshes[i].material.emissiveColor = new BABYLON.Color3(.7,.7,.7);
@@ -1215,8 +1182,14 @@ wtwshopping.prototype.addMoldStoreProduct = function(zmoldname, zmolddef, zlenx,
 								}
 							}
 						}
-						zmold.isPickable = false;
-						WTWShopping.getStoreMolds(zmoldname);
+						/* check to see if the mold still exists since the time it was requested */
+						zmold = scene.getMeshByID(zmoldname);
+						if (zmold != null) {
+							zmold.isPickable = false;
+							WTWShopping.getStoreMolds(zmoldname);
+						} else {
+							WTW.disposeClean(zmoldname);
+						}
 					}
 				}
 			);		

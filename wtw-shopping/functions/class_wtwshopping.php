@@ -21,9 +21,9 @@ class wtwshopping {
 	
 	public $version = "1.0.1";
 
-	public $dbversion = "1.0.1";
+	public $dbversion = "1.0.3";
 
-	public $versiondate = "2020-8-29";
+	public $versiondate = "2020-11-16";
 	
 	public function __call ($method, $arguments)  {
 		if (isset($this->$method)) {
@@ -236,6 +236,7 @@ class wtwshopping {
 					$wtwplugins->deltaCreateTable("
 						CREATE TABLE `".WTWSHOPPING_PREFIX."stores` (
 						  `storeid` varchar(16) NOT NULL,
+						  `wpinstanceid` varchar(32) DEFAULT '',
 						  `storename` varchar(255) DEFAULT '',
 						  `storeiframes` int(11) DEFAULT '0',
 						  `storeurl` varchar(255) DEFAULT '',
@@ -247,6 +248,8 @@ class wtwshopping {
 						  `woocommerceapiurl` varchar(255) DEFAULT '',
 						  `woocommercekey` varchar(255) DEFAULT '',
 						  `woocommercesecret` varchar(255) DEFAULT '',
+						  `woocommercekeynew` varchar(255) DEFAULT '',
+						  `woocommercesecretnew` varchar(255) DEFAULT '',
 						  `approveddate` datetime DEFAULT NULL,
 						  `approveduserid` varchar(16) DEFAULT '',
 						  `createdate` datetime DEFAULT NULL,
